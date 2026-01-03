@@ -1,23 +1,28 @@
 import './App.css'
-import DotGrid from "./components/backgrounds/dot-grid/DotGrid.tsx";
+import Hero from "./components/sections/hero/Hero.tsx";
 
 function App() {
 
     return (
+        <div className="relative bg-[#101010]">
+            {/*<div className="absolute inset-0 w-full h-full">
+                <DotGrid
+                    dotSize={3.5}
+                    gap={30}
+                    baseColor="#dfdfdf"
+                    activeColor="#ffffff"
+                    proximity={150}
+                    shockRadius={250}
+                    shockStrength={15}
+                    resistance={2000}
+                    returnDuration={2}
+                />
+            </div>*/}
 
-    <div className="bg-zinc-950 w-full h-screen relativee">
-        <DotGrid
-            dotSize={3.5}
-            gap={25}
-            baseColor="#ffffff"
-            activeColor="#1a0863"
-            proximity={150}
-            shockRadius={250}
-            shockStrength={15}
-            resistance={2000}
-            returnDuration={2}
-        />
-    </div>
+            <div className="relative">
+                <Hero/>
+            </div>
+        </div>
     )
 }
 
