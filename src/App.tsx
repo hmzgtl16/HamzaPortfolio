@@ -1,10 +1,11 @@
 import './App.css'
 import Hero from "./components/sections/hero/Hero.tsx";
+import About from "@/components/sections/about/About.tsx";
 
 function App() {
 
     return (
-        <div className="relative bg-[#101010]">
+        <div className="relative min-h-screen overflow-hidden">
             {/*<div className="absolute inset-0 w-full h-full">
                 <DotGrid
                     dotSize={3.5}
@@ -18,10 +19,8 @@ function App() {
                     returnDuration={2}
                 />
             </div>*/}
-
-            <div className="relative">
                 <Hero/>
-            </div>
+                <About/>
         </div>
     )
 }
