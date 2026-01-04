@@ -1,13 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 export type LogoItem =
-  | {
-      node: React.ReactNode;
-      href?: string;
-      title?: string;
-      ariaLabel?: string;
-    }
-  | {
+    {
       src: string;
       alt?: string;
       href?: string;
@@ -311,8 +305,8 @@ export const LogoLoop = React.memo<LogoLoopProps>(
           return (
             <li
               className={cx(
-                'flex-none text-[length:var(--logoloop-logoHeight)] leading-[1]',
-                isVertical ? 'mb-[var(--logoloop-gap)]' : 'mr-[var(--logoloop-gap)]',
+                'flex-none text-(length:--logoloop-logoHeight) leading-none',
+                isVertical ? 'mb-(--logoloop-gap)' : 'mr-(--logoloop-gap)',
                 scaleOnHover && 'overflow-visible group/item'
               )}
               key={key}
@@ -323,77 +317,43 @@ export const LogoLoop = React.memo<LogoLoopProps>(
           );
         }
 
-        const isNodeItem = 'node' in item;
-
-        const content = isNodeItem ? (
-          <span
-            className={cx(
-              'inline-flex items-center',
-              'motion-reduce:transition-none',
-              scaleOnHover &&
-                'transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120'
-            )}
-            aria-hidden={!!(item as any).href && !(item as any).ariaLabel}
-          >
-            {(item as any).node}
-          </span>
-        ) : (
-          <img
-            className={cx(
-              'h-[var(--logoloop-logoHeight)] w-auto block object-contain',
-              '[-webkit-user-drag:none] pointer-events-none',
-              '[image-rendering:-webkit-optimize-contrast]',
-              'motion-reduce:transition-none',
-              scaleOnHover &&
-                'transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120'
-            )}
-            src={(item as any).src}
-            srcSet={(item as any).srcSet}
-            sizes={(item as any).sizes}
-            width={(item as any).width}
-            height={(item as any).height}
-            alt={(item as any).alt ?? ''}
-            title={(item as any).title}
-            loading="lazy"
-            decoding="async"
-            draggable={false}
-          />
-        );
-
-        const itemAriaLabel = isNodeItem
-          ? ((item as any).ariaLabel ?? (item as any).title)
-          : ((item as any).alt ?? (item as any).title);
-
-        const inner = (item as any).href ? (
-          <a
-            className={cx(
-              'inline-flex items-center no-underline rounded',
-              'transition-opacity duration-200 ease-linear',
-              'hover:opacity-80',
-              'focus-visible:outline focus-visible:outline-current focus-visible:outline-offset-2'
-            )}
-            href={(item as any).href}
-            aria-label={itemAriaLabel || 'logo link'}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            {content}
-          </a>
-        ) : (
-          content
+        const content = (
+            <div className="inline-flex items-center justify-center gap-x-3">
+                <img
+                    className={cx(
+                        'h-(--logoloop-logoHeight) w-auto block object-contain',
+                        '[-webkit-user-drag:none] pointer-events-none',
+                        '[image-rendering:-webkit-optimize-contrast]',
+                        'motion-reduce:transition-none',
+                        scaleOnHover &&
+                        'transition-transform duration-300 ease-in-out group-hover/item:scale-120'
+                    )}
+                    src={(item as LogoItem).src}
+                    srcSet={(item as LogoItem).srcSet}
+                    sizes={(item as LogoItem).sizes}
+                    width={(item as LogoItem).width}
+                    height={(item as LogoItem).height}
+                    alt={(item as LogoItem).alt ?? ''}
+                    title={(item as LogoItem).title}
+                    loading="lazy"
+                    decoding="async"
+                    draggable={false}
+                />
+                <span className="text-base font-medium text-foreground">{(item as LogoItem).title ?? ''}</span>
+            </div>
         );
 
         return (
           <li
             className={cx(
-              'flex-none text-[length:var(--logoloop-logoHeight)] leading-[1]',
-              isVertical ? 'mb-[var(--logoloop-gap)]' : 'mr-[var(--logoloop-gap)]',
+              'flex-none text-(length:--logoloop-logoHeight) leading-none',
+              isVertical ? 'mb-(--logoloop-gap)' : 'mr-(--logoloop-gap)',
               scaleOnHover && 'overflow-visible group/item'
             )}
             key={key}
             role="listitem"
           >
-            {inner}
+            {content}
           </li>
         );
       },
