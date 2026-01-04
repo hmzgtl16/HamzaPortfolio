@@ -7,12 +7,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-    --font-sans: "IBM Plex Sans", sans-serif;
-    --font-serif: "IBM Plex Serif", serif;
-    --font-mono: "IBM Plex Mono", monospace;
 }
 
 @theme inline {
+    --font-sans: var(--font-sans);
+    --font-serif: var(--font-serif);
+    --font-mono: var(--font-mono);
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
     --radius-lg: var(--radius);
@@ -54,6 +54,9 @@
 }
 
 :root {
+    --font-sans: "IBM Plex Sans", sans-serif;
+    --font-serif: "IBM Plex Serif", serif;
+    --font-mono: "IBM Plex Mono", monospace;
     --radius: 0.625rem;
     --background: oklch(0.173 0 89.876);
     --foreground: oklch(0.904 0 89.876);
