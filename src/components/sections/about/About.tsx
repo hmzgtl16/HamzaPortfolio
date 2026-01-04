@@ -1,4 +1,5 @@
 import LogoLoop from "@/components/sliders/logo-loop/LogoLoop.tsx";
+import { Element } from 'react-scroll';
 
 const techLogos = [
     {
@@ -115,7 +116,8 @@ const techLogos = [
 
 function About() {
     return (
-        <section id="about" className="flex flex-col align-middle justify-center h-screen">
+        <Element name="about" className="w-full h-screen">
+            <section className="flex flex-col align-middle justify-center h-full">
             <div className="flex flex-col justify-center mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl lg:mx-0">
                     <div className="text-center">
@@ -154,6 +156,7 @@ function About() {
                 />
             </div>
         </section>
+        </Element>
     )
 }
 
