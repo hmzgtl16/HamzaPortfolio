@@ -1,7 +1,7 @@
 'use client'
 import {useState, useEffect} from 'react'
 import {motion} from 'framer-motion'
-import {animateScroll, Events, scroller} from 'react-scroll'
+import {animateScroll} from 'react-scroll'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
 
