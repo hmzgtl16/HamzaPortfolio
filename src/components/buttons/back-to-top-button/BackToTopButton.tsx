@@ -1,16 +1,23 @@
 'use client'
 import {useState, useEffect} from 'react'
-import {motion} from 'framer-motion'
+import { motion, AnimatePresence } from "motion/react"
 import {animateScroll} from 'react-scroll'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
 
-const BackToTopButton = () => {
-    const [isVisible, setIsVisible] = useState(false)
+const SCROLL_THRESHOLD = 500
 
-    const toggleVisibility = () => {
-        setIsVisible(window.scrollY > 500)
-    }
+function BackToTopButton() {
+    const [visible, setVisible] = useState(false)
+
+    useEffect(() => {
+        const onScroll = () => {
+            setVisible(window.scrollY > SCROLL_THRESHOLD)
+        }
+
+        window.addEventListener('scroll', onScroll)
+        return () => window.removeEventListener('scroll', onScroll)
+    }, [])
 
     const options = {
         duration: 1500,
@@ -22,41 +29,34 @@ const BackToTopButton = () => {
         animateScroll.scrollToTop(options)
     }
 
-    useEffect(() => {
-        window.addEventListener('scroll', toggleVisibility)
-        return () => window.removeEventListener('scroll', toggleVisibility)
-    }, [])
-
-    const jumpAnimation = {
-        y: [0, -10, 0, -10, 0],
-        transition: {
-            y: {
-                duration: 0.7,
-                ease: 'easeOut',
-                repeat: 1,
-            },
-        },
-    }
-
     return (
-
-        <motion.div
-            initial={{opacity: 0, scale: 0.8}}
-            animate={{opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8}}
-            transition={{duration: 0.4}}
-            className="fixed bottom-10 right-10 z-50"
-        >
-            {isVisible && (
+        <AnimatePresence>
+            {visible && (
                 <motion.button
-                    whileHover={jumpAnimation}
+                    key="back-to-top"
                     onClick={scrollToTop}
                     aria-label="Back to top"
-                    className="bg-foreground text-background rounded-full size-12"
+                    initial={{ opacity: 0, scale: 0.7, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.7, y: 20 }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                    whileHover={{
+                        y: [0, -10, 0],
+                        transition: { duration: 0.6, ease: 'easeOut' },
+                    }}
+                    whileTap={{ scale: 0.9 }}
+                    className="
+            fixed bottom-10 right-10 z-50
+            size-12 rounded-full
+            bg-foreground text-background
+            flex items-center justify-center
+            shadow-lg
+          "
                 >
-                    <FontAwesomeIcon icon={faArrowUp} size='xl'/>
+                    <FontAwesomeIcon icon={faArrowUp} size="lg" />
                 </motion.button>
             )}
-        </motion.div>
+        </AnimatePresence>
     )
 }
 
