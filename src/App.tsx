@@ -4,6 +4,7 @@ import About from "@/components/sections/about/About.tsx";
 import StaggeredMenu from "@/components/menus/staggered-menu/StaggeredMenu.tsx";
 import BackToTopButton from "@/components/buttons/back-to-top-button/BackToTopButton.tsx";
 import Services from "@/components/sections/services/Services.tsx";
+import Projects from "@/components/sections/projects/Projects.tsx";
 
 function App() {
 
@@ -22,6 +23,11 @@ function App() {
             label: 'Services',
             ariaLabel: 'Services section',
             link: 'services'
+        },
+        {
+            label: 'Projects',
+            ariaLabel: 'Projects section',
+            link: 'projects'
         }
     ];
 
@@ -38,6 +44,7 @@ function App() {
             <Hero/>
             <About/>
             <Services/>
+            <Projects/>
 
             <BackToTopButton/>
         </div>
