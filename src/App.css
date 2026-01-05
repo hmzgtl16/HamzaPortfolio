@@ -1,0 +1,17 @@
+/* StaggeredMenu numbering (counter) */
+.sm-panel-list[data-numbering] {
+    counter-reset: smItem;
+}
+
+.sm-panel-list[data-numbering] .sm-panel-item::after {
+    counter-increment: smItem;
+    content: counter(smItem, decimal-leading-zero);
+    position: absolute;
+    top: 0.1em;
+    right: 3.2em;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+    pointer-events: none;
+    user-select: none;
+}

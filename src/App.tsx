@@ -3,16 +3,30 @@ import Hero from "./components/sections/hero/Hero.tsx";
 import About from "@/components/sections/about/About.tsx";
 import StaggeredMenu from "@/components/menus/staggered-menu/StaggeredMenu.tsx";
 import BackToTopButton from "@/components/buttons/back-to-top-button/BackToTopButton.tsx";
-
-const menuItems = [
-    {label: 'Home', ariaLabel: 'Hero section', link: 'hero'},
-    {label: 'About', ariaLabel: 'About me section', link: 'about'}
-];
+import Services from "@/components/sections/services/Services.tsx";
 
 function App() {
 
+    const menuItems = [
+        {
+            label: 'Home',
+            ariaLabel: 'Hero section',
+            link: 'hero'
+        },
+        {
+            label: 'About',
+            ariaLabel: 'About me section',
+            link: 'about'
+        },
+        {
+            label: 'Services',
+            ariaLabel: 'Services section',
+            link: 'services'
+        }
+    ];
+
     return (
-        <div className="relative min-h-screen overflow-hidden">
+        <div className="flex flex-col min-h-screen overflow-hidden">
             <StaggeredMenu
                 position="right"
                 isFixed={true}
@@ -23,6 +37,7 @@ function App() {
             />
             <Hero/>
             <About/>
+            <Services/>
 
             <BackToTopButton/>
         </div>

@@ -1,5 +1,5 @@
 import LogoLoop from "@/components/sliders/logo-loop/LogoLoop.tsx";
-import { Element } from 'react-scroll';
+import {Element} from 'react-scroll';
 
 const techLogos = [
     {
@@ -116,46 +116,52 @@ const techLogos = [
 
 function About() {
     return (
-        <Element name="about" className="w-full h-screen">
-            <section className="flex flex-col align-middle justify-center h-full">
-            <div className="flex flex-col justify-center mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-7xl lg:mx-0">
-                    <div className="text-center">
-                        <h2 className="text-4xl font-serif font-bold tracking-tight text-pretty sm:text-5xl capitalize">
-                            About me
-                        </h2>
-                        <p className="mt-4 text-2xl font-sans font-medium tracking-wide text-foreground/75">
-                            A brief introduction about me and my interest.
-                        </p>
+        <Element name="about" className="w-full">
+            <section className="h-full">
+                <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+                    <div className="mx-auto px-6 lg:px-8">
+                        <div className="mx-auto lg:mx-0">
+                            <div className="text-center">
+                                <h2 className="text-4xl font-serif font-bold tracking-tight text-pretty sm:text-5xl capitalize">
+                                    About me
+                                </h2>
+                                <p className="mt-4 text-2xl font-sans font-medium tracking-wide text-foreground/65">
+                                    A brief introduction about me and my interest.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="mx-auto my-6 py-4 sm:my-8 sm:py-8 lg:mx-0">
+                            <div
+                                className="text-center tracking-wide leading-relaxe mx-auto space-y-8 max-w-4xl">
+                                <p className="text-xl sm:text-2xl">
+                                    I’m an Android developer focused on building modern, maintainable mobile applications
+                                    using Kotlin and Jetpack Compose. I care deeply about clean architecture, scalability,
+                                    and writing code that remains readable and testable as projects grow.
+                                </p>
+                                <p className="text-xl sm:text-2xl">
+                                    In addition to Android development, I have experience with backend development using
+                                    Spring Boot, REST APIs, and PostgreSQL, as well as contributing to frontend development
+                                    to support well-integrated, end-to-end solutions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex flex-col justify-center mx-auto my-2p-2 lg:p-4">
+                        <LogoLoop
+                            logos={techLogos}
+                            speed={60}
+                            direction="left"
+                            logoHeight={40}
+                            gap={60}
+                            hoverSpeed={60}
+                            fadeOut
+                            fadeOutColor="#101010"
+                            ariaLabel="Technologies"
+                            scaleOnHover={false}
+                        />
                     </div>
                 </div>
-                <div className="mx-auto my-6 max-w-6xl py-4 sm:my-8 sm:py-8 lg:mx-0">
-                    <div
-                        className="text-center text-lg font-sans font-normal tracking-wide leading-relaxe space-y-6 max-w-4xl">
-                        <p className="text-2xl">
-                            I’m an Android developer focused on building modern, maintainable mobile applications using Kotlin and Jetpack Compose. I care deeply about clean architecture, scalability, and writing code that remains readable and testable as projects grow.
-                        </p>
-                        <p className="text-2xl">
-                            In addition to Android development, I have experience with backend development using Spring Boot, REST APIs, and PostgreSQL, as well as contributing to frontend development to support well-integrated, end-to-end solutions.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div className="mx-auto my-2 max-w-7xl p-2 lg:p-4">
-                <LogoLoop
-                    logos={techLogos}
-                    speed={60}
-                    direction="left"
-                    logoHeight={40}
-                    gap={60}
-                    hoverSpeed={60}
-                    fadeOut
-                    fadeOutColor="#101010"
-                    ariaLabel="Technologies"
-                    scaleOnHover={false}
-                />
-            </div>
-        </section>
+            </section>
         </Element>
     )
 }
