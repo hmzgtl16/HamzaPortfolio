@@ -3,23 +3,23 @@ import React from 'react';
 import type {IconDefinition} from "@fortawesome/free-regular-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-interface CardContent {
+interface ServiceCardContent {
     id: number;
     title: string;
     description: string;
     icon: IconDefinition;
 }
 
-interface CardContentProps {
-    item: CardContent;
+interface ServiceCardContentProps {
+    item: ServiceCardContent;
 }
 
-interface CardProps {
-    content: CardContent;
+interface ServiceCardProps {
+    content: ServiceCardContent;
     className?: string;
 }
 
-const CardContent: React.FC<CardContentProps> = ({item}) => {
+const ServiceCardContent: React.FC<ServiceCardContentProps> = ({item}) => {
     return (
         <motion.div
             key={`${item.id}}`}
@@ -34,7 +34,7 @@ const CardContent: React.FC<CardContentProps> = ({item}) => {
     );
 }
 
-const Card: React.FC<CardProps> = ({
+const ServiceCard: React.FC<ServiceCardProps> = ({
     content,
     className = '',
 }) =>  {
@@ -43,10 +43,10 @@ const Card: React.FC<CardProps> = ({
             className={`relative rounded-3xl border border-neutral-800 bg-neutral-900 overflow-hidden p-4 ${className}`}
         >
             {content && (
-                <CardContent item={content}/>
+                <ServiceCardContent item={content}/>
             )}
         </div>
     );
 }
 
-export default Card;
+export default ServiceCard;

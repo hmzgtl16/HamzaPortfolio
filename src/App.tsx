@@ -4,6 +4,7 @@ import About from "@/components/sections/about/About.tsx";
 import StaggeredMenu from "@/components/menus/staggered-menu/StaggeredMenu.tsx";
 import BackToTopButton from "@/components/buttons/back-to-top-button/BackToTopButton.tsx";
 import Services from "@/components/sections/services/Services.tsx";
+import Projects from "@/components/sections/projects/Projects.tsx";
 
 function App() {
 
@@ -22,11 +23,16 @@ function App() {
             label: 'Services',
             ariaLabel: 'Services section',
             link: 'services'
+        },
+        {
+            label: 'Projects',
+            ariaLabel: 'Projects section',
+            link: 'projects'
         }
     ];
 
     return (
-        <div className="flex flex-col min-h-screen overflow-hidden">
+        <div className="min-h-screen overflow-hidden">
             <StaggeredMenu
                 position="right"
                 isFixed={true}
@@ -35,9 +41,13 @@ function App() {
                 displayItemNumbering={false}
                 changeMenuColorOnOpen={true}
             />
-            <Hero/>
-            <About/>
-            <Services/>
+
+            <main className="flex flex-col divide-y divide-neutral-800 h-full px-3">
+                <Hero/>
+                <About/>
+                <Services/>
+                <Projects/>
+            </main>
 
             <BackToTopButton/>
         </div>

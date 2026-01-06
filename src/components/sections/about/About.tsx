@@ -118,7 +118,7 @@ function About() {
     return (
         <Element name="about" className="w-full">
             <section className="h-full">
-                <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+                <div className="mx-auto max-w-7xl py-16 sm:px-6 sm:py-24 lg:px-8">
                     <div className="mx-auto px-6 lg:px-8">
                         <div className="mx-auto lg:mx-0">
                             <div className="text-center">
