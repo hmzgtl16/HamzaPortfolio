@@ -90,32 +90,34 @@ function Projects() {
                         duration={1.7}
                         threshold={0.25}
                     >
-                        <div className="mx-auto grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-                        {projects.map((project) => (
-                            <ProjectCard
-                                content={project}
-                                className="group"
-                            />
-                        ))}
-                    </div>
+                        <div
+                            className="mx-auto grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+                            {projects.map((project) => (
+                                <ProjectCard
+                                    key={project.id}
+                                    content={project}
+                                    className="group"
+                                />
+                            ))}
+                        </div>
                     </FadeContent>
                     <FadeContent
                         delay={3.6}
                         duration={1.7}
                         threshold={0.25}
                     >
-                        <div className="mx-auto" >
-                        <a
-                            href="https://github.com/hmzgtl16?tab=repositories"
-                            className="mx-auto w-full h-12 p-2 inline-flex items-center justify-center gap-x-4 border border-neutral-800 bg-neutral-900 rounded-full hover:bg-neutral-800 hover:scale-105 transition-all duration-300"
-                            aria-label="GitHub Repositories"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <span>View more on</span>
-                            <FontAwesomeIcon icon={faGithub} size="xl"/>
-                        </a>
-                    </div>
+                        <div className="mx-auto">
+                            <a
+                                href="https://github.com/hmzgtl16?tab=repositories"
+                                className="mx-auto w-full h-12 p-2 inline-flex items-center justify-center gap-x-4 border border-neutral-800 bg-neutral-900 rounded-full hover:bg-neutral-800 hover:scale-105 transition-all duration-300"
+                                aria-label="GitHub Repositories"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span>View more on</span>
+                                <FontAwesomeIcon icon={faGithub} size="xl"/>
+                            </a>
+                        </div>
                     </FadeContent>
                 </div>
             </section>
