@@ -5,6 +5,8 @@ import StaggeredMenu from "@/components/menus/staggered-menu/StaggeredMenu.tsx";
 import BackToTopButton from "@/components/buttons/back-to-top-button/BackToTopButton.tsx";
 import Services from "@/components/sections/services/Services.tsx";
 import Projects from "@/components/sections/projects/Projects.tsx";
+import Contact from "@/components/sections/contact/Contact.tsx";
+import Footer from "@/components/sections/footer/Footer.tsx";
 
 function App() {
 
@@ -28,6 +30,11 @@ function App() {
             label: 'Projects',
             ariaLabel: 'Projects section',
             link: 'projects'
+        },
+        {
+            label: 'Contact',
+            ariaLabel: 'Contact section',
+            link: 'contact'
         }
     ];
 
@@ -47,7 +54,10 @@ function App() {
                 <About/>
                 <Services/>
                 <Projects/>
+                <Contact/>
             </main>
+
+            <Footer/>
 
             <BackToTopButton/>
         </div>

@@ -8,35 +8,33 @@ import HPortfolio from '/src/assets/hportfolio.png';
 import HBank from '/src/assets/hbank.png';
 import HNotes from '/src/assets/hnotes.png';
 import WLCP from '/src/assets/wlcp.png';
+import BlurText from "@/components/texts/blur-text/BlurText.tsx";
+import FadeContent from "@/components/animations/fade-content/FadeContent.tsx";
 
 function Projects() {
-
     const projects = [
         {
             id: 1,
             title: 'HPoke',
-            description:
-                'A clean-architecture Android application built to explore Pokémon data, offering a smooth and offline-friendly experience powered by the PokeAPI and modern Android development practices.',
+            description: 'Android app for exploring Pokémon data with offline-first architecture and modern Jetpack Compose UI.',
             image: HPoke,
-            tags: ['Android', 'Kotlin', 'Jetpack Compose', 'Modular Architecture', 'Gradle Convention Plugin', 'Offline First'],
+            tags: ['Android', 'Kotlin', 'Jetpack Compose'],
             repository: 'https://github.com/hmzgtl16/HPoke',
             website: ''
         },
         {
             id: 2,
             title: 'HBookStore',
-            description:
-                'A comprehensive Spring Boot–based RESTful API for managing books, authors, customers, and reviews, featuring secure JWT authentication and a clean, domain-driven architecture.',
+            description: 'Spring Boot REST API for book management with JWT authentication and domain-driven design.',
             image: HBookStore,
-            tags: ['Spring Boot', 'Java', 'REST API', 'JWT', 'DDD', 'PostgreSQL'],
+            tags: ['Spring Boot', 'Java', 'REST API', 'JWT'],
             repository: 'https://github.com/hmzgtl16/HBookStore',
             website: ''
         },
         {
             id: 3,
             title: 'Personal Portfolio',
-            description:
-                'A personal portfolio website designed to showcase my projects, skills, and services, with a clean layout, responsive design, and a focus on clarity and performance.',
+            description: 'Responsive React portfolio showcasing projects and skills with clean, performant design.',
             image: HPortfolio,
             tags: ['React', 'Tailwind CSS', 'Vite'],
             repository: 'https://github.com/hmzgtl16/HamzaPortfolio',
@@ -45,28 +43,25 @@ function Projects() {
         {
             id: 4,
             title: 'HBank-API',
-            description:
-                'A banking RESTful API built with Spring Boot and Kotlin, designed to handle core banking operations with a focus on security, scalability, and clean architecture.',
+            description: 'Kotlin-based banking REST API built with Spring Boot, featuring secure and scalable architecture.',
             image: HBank,
-            tags: ['Spring Boot', 'Kotlin', 'REST API', 'MVC', 'JPA', 'PostgreSQL'],
+            tags: ['Spring Boot', 'Kotlin', 'REST API', 'JPA'],
             repository: 'https://github.com/hmzgtl16/HBank-API',
             website: ''
         },
         {
             id: 5,
             title: 'HNotes',
-            description:
-                'A modular Android application designed for note-taking, built with a focus on clean architecture, scalability, and maintainable code.',
+            description: 'Modular Android note-taking app built with clean architecture and Jetpack Compose.',
             image: HNotes,
-            tags: ['Android', 'Kotlin', 'Jetpack Compose', 'Modular Architecture', 'Notes App'],
+            tags: ['Android', 'Kotlin', 'Jetpack Compose'],
             repository: 'https://github.com/hmzgtl16/HNotes',
             website: ''
         },
         {
             id: 6,
             title: 'White Label Casinos Project',
-            description:
-                'A multi-language website built with Angular and Bootstrap, provide a responsive, user-friendly experience across different locales.',
+            description: 'Multi-language Angular website with responsive Bootstrap design and internationalization support.',
             image: WLCP,
             tags: ['Angular', 'Bootstrap 5', 'i18n', 'Vite'],
             repository: 'https://github.com/hmzgtl16/WhiteLabelCasinosProject',
@@ -79,34 +74,51 @@ function Projects() {
             <section className="flex flex-col align-middle justify-center h-full">
                 <div className="mx-auto max-w-2xl px-4 py-16 space-y-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
                     <div className="mx-auto max-w-3xl lg:text-center">
-                        <h2 className="text-4xl font-serif font-bold tracking-tight text-pretty sm:text-5xl capitalize">
-                            My Projects
-                        </h2>
-                        <p className="mt-6 text-2xl font-sans font-medium text-foreground/60 tracking-wide">
-                            Examples of my work in Android, backend, and frontend development, emphasizing quality,
-                            performance, and thoughtful system design.
-                        </p>
+                        <BlurText
+                            text='My Projects'
+                            delay={100}
+                            className="text-4xl font-serif font-bold tracking-tight text-pretty sm:text-5xl capitalize"
+                        />
+                        <BlurText
+                            text='Examples of my work in Android, backend, and frontend development, emphasizing quality, performance, and thoughtful system design.'
+                            delay={200}
+                            className="mt-6 text-2xl font-sans font-medium text-foreground/60 tracking-wide"
+                        />
                     </div>
-                    <div className="mx-auto grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-                        {projects.map((project) => (
-                            <ProjectCard
-                                content={project}
-                                className="group"
-                            />
-                        ))}
-                    </div>
-                    <div className="mx-auto" >
-                        <a
-                            href="https://github.com/hmzgtl16?tab=repositories"
-                            className="mx-auto w-full h-12 p-2 inline-flex items-center justify-center gap-x-4 border border-neutral-800 bg-neutral-900 rounded-full hover:bg-neutral-800 hover:scale-105 transition-all duration-300"
-                            aria-label="GitHub Repositories"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <span>View more on</span>
-                            <FontAwesomeIcon icon={faGithub} size="xl"/>
-                        </a>
-                    </div>
+                    <FadeContent
+                        delay={3.5}
+                        duration={1.7}
+                        threshold={0.25}
+                    >
+                        <div
+                            className="mx-auto grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+                            {projects.map((project) => (
+                                <ProjectCard
+                                    key={project.id}
+                                    content={project}
+                                    className="group"
+                                />
+                            ))}
+                        </div>
+                    </FadeContent>
+                    <FadeContent
+                        delay={3.6}
+                        duration={1.7}
+                        threshold={0.25}
+                    >
+                        <div className="mx-auto">
+                            <a
+                                href="https://github.com/hmzgtl16?tab=repositories"
+                                className="mx-auto w-full h-12 p-2 inline-flex items-center justify-center gap-x-4 border border-neutral-800 bg-neutral-900 rounded-full hover:bg-neutral-800 hover:scale-105 transition-all duration-300"
+                                aria-label="GitHub Repositories"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span>View more on</span>
+                                <FontAwesomeIcon icon={faGithub} size="xl"/>
+                            </a>
+                        </div>
+                    </FadeContent>
                 </div>
             </section>
         </Element>

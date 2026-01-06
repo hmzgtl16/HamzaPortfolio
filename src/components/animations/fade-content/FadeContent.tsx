@@ -39,6 +39,13 @@ const FadeContent: React.FC<FadeContentProps> = ({
   ...props
 }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const onCompleteRef = useRef(onComplete);
+  const onDisappearanceCompleteRef = useRef(onDisappearanceComplete);
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+    onDisappearanceCompleteRef.current = onDisappearanceComplete;
+  });
 
   useEffect(() => {
     const el = ref.current;
@@ -63,7 +70,7 @@ const FadeContent: React.FC<FadeContentProps> = ({
       paused: true,
       delay: getSeconds(delay),
       onComplete: () => {
-        if (onComplete) onComplete();
+        if (onCompleteRef.current) onCompleteRef.current();
         if (disappearAfter > 0) {
           gsap.to(el, {
             autoAlpha: initialOpacity,
@@ -71,7 +78,7 @@ const FadeContent: React.FC<FadeContentProps> = ({
             delay: getSeconds(disappearAfter),
             duration: getSeconds(disappearDuration),
             ease: disappearEase,
-            onComplete: () => onDisappearanceComplete?.()
+            onComplete: () => onDisappearanceCompleteRef.current?.()
           });
         }
       }
@@ -97,7 +104,7 @@ const FadeContent: React.FC<FadeContentProps> = ({
       tl.kill();
       gsap.killTweensOf(el);
     };
-  }, []);
+    }, [blur, container, delay, disappearAfter, disappearDuration, disappearEase, duration, ease, initialOpacity, threshold]);
 
   return (
     <div ref={ref} className={className} {...props}>

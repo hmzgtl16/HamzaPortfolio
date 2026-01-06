@@ -1,8 +1,8 @@
 import {faEnvelope, faFileLines} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub, faLinkedin} from "@fortawesome/free-brands-svg-icons";
-import AnimatedContent from "@/components/ animations/animated-content/AnimatedContent.tsx";
-import FadeContent from "@/components/ animations/fade-content/FadeContent.tsx";
+import AnimatedContent from "@/components/animations/animated-content/AnimatedContent.tsx";
+import FadeContent from "@/components/animations/fade-content/FadeContent.tsx";
 import {Element} from 'react-scroll';
 
 function Hero() {
