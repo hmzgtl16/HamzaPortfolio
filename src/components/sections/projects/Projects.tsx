@@ -8,6 +8,8 @@ import HPortfolio from '/src/assets/hportfolio.png';
 import HBank from '/src/assets/hbank.png';
 import HNotes from '/src/assets/hnotes.png';
 import WLCP from '/src/assets/wlcp.png';
+import BlurText from "@/components/texts/blur-text/BlurText.tsx";
+import FadeContent from "@/components/animations/fade-content/FadeContent.tsx";
 
 function Projects() {
     const projects = [
@@ -72,15 +74,23 @@ function Projects() {
             <section className="flex flex-col align-middle justify-center h-full">
                 <div className="mx-auto max-w-2xl px-4 py-16 space-y-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
                     <div className="mx-auto max-w-3xl lg:text-center">
-                        <h2 className="text-4xl font-serif font-bold tracking-tight text-pretty sm:text-5xl capitalize">
-                            My Projects
-                        </h2>
-                        <p className="mt-6 text-2xl font-sans font-medium text-foreground/60 tracking-wide">
-                            Examples of my work in Android, backend, and frontend development, emphasizing quality,
-                            performance, and thoughtful system design.
-                        </p>
+                        <BlurText
+                            text='My Projects'
+                            delay={100}
+                            className="text-4xl font-serif font-bold tracking-tight text-pretty sm:text-5xl capitalize"
+                        />
+                        <BlurText
+                            text='Examples of my work in Android, backend, and frontend development, emphasizing quality, performance, and thoughtful system design.'
+                            delay={200}
+                            className="mt-6 text-2xl font-sans font-medium text-foreground/60 tracking-wide"
+                        />
                     </div>
-                    <div className="mx-auto grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+                    <FadeContent
+                        delay={3.5}
+                        duration={1.7}
+                        threshold={0.25}
+                    >
+                        <div className="mx-auto grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                         {projects.map((project) => (
                             <ProjectCard
                                 content={project}
@@ -88,7 +98,13 @@ function Projects() {
                             />
                         ))}
                     </div>
-                    <div className="mx-auto" >
+                    </FadeContent>
+                    <FadeContent
+                        delay={3.6}
+                        duration={1.7}
+                        threshold={0.25}
+                    >
+                        <div className="mx-auto" >
                         <a
                             href="https://github.com/hmzgtl16?tab=repositories"
                             className="mx-auto w-full h-12 p-2 inline-flex items-center justify-center gap-x-4 border border-neutral-800 bg-neutral-900 rounded-full hover:bg-neutral-800 hover:scale-105 transition-all duration-300"
@@ -100,6 +116,7 @@ function Projects() {
                             <FontAwesomeIcon icon={faGithub} size="xl"/>
                         </a>
                     </div>
+                    </FadeContent>
                 </div>
             </section>
         </Element>
