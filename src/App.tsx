@@ -32,7 +32,7 @@ function App() {
     ];
 
     return (
-        <div className="flex flex-col min-h-screen overflow-hidden">
+        <div className="min-h-screen overflow-hidden">
             <StaggeredMenu
                 position="right"
                 isFixed={true}
@@ -41,10 +41,13 @@ function App() {
                 displayItemNumbering={false}
                 changeMenuColorOnOpen={true}
             />
-            <Hero/>
-            <About/>
-            <Services/>
-            <Projects/>
+
+            <main className="flex flex-col divide-y divide-neutral-800 h-full px-3">
+                <Hero/>
+                <About/>
+                <Services/>
+                <Projects/>
+            </main>
 
             <BackToTopButton/>
         </div>

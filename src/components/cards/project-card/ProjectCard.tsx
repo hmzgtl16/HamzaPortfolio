@@ -2,7 +2,7 @@ import {motion} from "motion/react";
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub} from "@fortawesome/free-brands-svg-icons";
-import {faGlobe} from "@fortawesome/free-solid-svg-icons";
+import {faArrowUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
 
 interface ProjectCardContent {
     id: number;
@@ -23,72 +23,73 @@ interface ProjectCardProps {
     className?: string;
 }
 
-const ProjectCardContent: React.FC<ProjectCardContentProps> = ({item}) => {
+const ProjectCardContent: React.FC<ProjectCardContentProps> = (
+    {item}
+) => {
     return (
         <motion.div
             key={`${item.id}}`}
-            className={`flex flex-col items-start justify-evenly`}
+            className={`flex flex-col items-start justify-between h-full`}
         >
             <div className="flex mb-4 shadow-md w-full">
-                <img src={item.image} alt={item.title} className="w-full h-60 object-cover"/>
+                <img src={item.image} alt={item.title} className="w-full h-56 object-cover hover:scale-110 transition-all duration-300"/>
             </div>
-            <div className="p-4 space-y-4">
-                <div className="space-y-4">
+            <div className="flex flex-col p-4 space-y-8 h-full z-10">
+                <div className="grow space-y-4">
                     <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
                     <p className="text-lg font-normal text-foreground/60 leading-relaxed">{item.description}</p>
                 </div>
-                <div className="flex flex-wrap gap-x-2.5 gap-y-2">
-                    {item.tags.map((tag) => (
-                        <span
-                            key={tag}
-                            className="inline-flex items-center px-3 py-1 border border-neutral-800 rounded-full text-xs font-medium bg-foreground/10 text-foreground">
-                            {tag}
-                        </span>
-                    ))}
+                <div className="flex-none">
+                    <div className="flex flex-wrap-reverse gap-x-2.5 gap-y-2">
+                        {item.tags.map((tag) => (
+                            <span
+                                key={tag}
+                                className="inline-flex items-center px-3 py-1.5 bg-neutral-800 text-xs font-medium text-foreground rounded-full"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
                 </div>
-                <div className="flex flex-row gap-x-3">
-                    {item.website && (
-                        <div
-                            className="flex-1 h-9 px-1 bg-foreground text-background text-sm rounded-md shadow-xs hover:bg-foreground/75 hover:font-medium">
+                <div className="flex-none">
+                    <div className="flex justify-end gap-x-4">
+                        {item.repository && (
                             <a
                                 href={item.website}
-                               className="flex items-center justify-center w-full h-full gap-x-3"
-                                aria-label={`Preview ${item.title}`}
-                               target="_blank"
-                               rel="noopener noreferrer"
+                                className="w-10 h-10 hover:scale-110 transition-all duration-300"
+                                aria-label={`${item.title} GitHub Repository`}
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
-                                <FontAwesomeIcon icon={faGlobe} size="lg"/>
-                                Preview
+                                <FontAwesomeIcon icon={faGithub} size="2xl"/>
                             </a>
-                        </div>
-                    )}
-                    {item.repository && (
-                        <div
-                            className="flex-1 h-9 px-1 bg-background text-foreground text-sm rounded-md shadow-xs hover:bg-background/10 hover:font-medium">
-                            <a href={item.website}
-                               className="flex items-center justify-center w-full h-full gap-x-3"
-                               target="_blank"
-                               rel="noopener noreferrer"
+                        )}
+                        {item.website && (
+                            <a
+                                href={item.website}
+                                className="w-10 h-10 hover:scale-110 transition-all duration-300"
+                                aria-label={`${item.title} Live Preview`}
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
-                                <FontAwesomeIcon icon={faGithub} size="lg"/>
-                                Github
+                                <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="2xl"/>
                             </a>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
             </div>
         </motion.div>
     )
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
-                                                     content,
-                                                     className = '',
-                                                 }) => {
+const ProjectCard: React.FC<ProjectCardProps> = (
+    {
+        content,
+        className = '',
+    }
+) => {
     return (
-        <div
-            className={`relative rounded-3xl border border-neutral-800 bg-neutral-900 overflow-hidden ${className}`}
-        >
+        <div className={`relative rounded-3xl border border-neutral-800 bg-neutral-900 overflow-hidden ${className}`}>
             {content && (
                 <ProjectCardContent item={content}/>
             )}
