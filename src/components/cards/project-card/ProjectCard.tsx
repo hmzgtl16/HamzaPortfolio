@@ -55,7 +55,7 @@ const ProjectCardContent: React.FC<ProjectCardContentProps> = (
                     <div className="flex justify-end gap-x-4">
                         {item.repository && (
                             <a
-                                href={item.website}
+                                href={item.repository}
                                 className="w-10 h-10 hover:scale-110 transition-all duration-300"
                                 aria-label={`${item.title} GitHub Repository`}
                                 target="_blank"
