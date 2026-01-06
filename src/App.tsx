@@ -6,6 +6,7 @@ import BackToTopButton from "@/components/buttons/back-to-top-button/BackToTopBu
 import Services from "@/components/sections/services/Services.tsx";
 import Projects from "@/components/sections/projects/Projects.tsx";
 import Contact from "@/components/sections/contact/Contact.tsx";
+import Footer from "@/components/sections/footer/Footer.tsx";
 
 function App() {
 
@@ -55,6 +56,8 @@ function App() {
                 <Projects/>
                 <Contact/>
             </main>
+
+            <Footer/>
 
             <BackToTopButton/>
         </div>

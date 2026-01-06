@@ -51,12 +51,12 @@ function Contact() {
                         </p>
                     </div>
                     <div className="mx-auto max-w-3xl lg:text-center">
-                        <div>
+                        <div className="flex flex-wrap justify-center gap-x-6 gap-y-4">
                             {sochialLinks.map((link) => (
                                 <a
                                     key={link.id}
                                     href={link.url}
-                                    className="mx-auto w-18 h-18 p-4 inline-flex items-center justify-center gap-x-4 border border-neutral-800 bg-neutral-900 rounded-full hover:bg-neutral-800 hover:scale-105 transition-all duration-300"
+                                    className="w-18 h-18 p-4 inline-flex items-center justify-center gap-x-4 border border-neutral-800 bg-neutral-900 rounded-full hover:bg-neutral-800 hover:scale-105 transition-all duration-300"
                                     aria-label={link.label}
                                     target="_blank"
                                     rel="noopener noreferrer"

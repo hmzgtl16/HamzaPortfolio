@@ -10,33 +10,29 @@ import HNotes from '/src/assets/hnotes.png';
 import WLCP from '/src/assets/wlcp.png';
 
 function Projects() {
-
     const projects = [
         {
             id: 1,
             title: 'HPoke',
-            description:
-                'A clean-architecture Android application built to explore Pokémon data, offering a smooth and offline-friendly experience powered by the PokeAPI and modern Android development practices.',
+            description: 'Android app for exploring Pokémon data with offline-first architecture and modern Jetpack Compose UI.',
             image: HPoke,
-            tags: ['Android', 'Kotlin', 'Jetpack Compose', 'Modular Architecture', 'Gradle Convention Plugin', 'Offline First'],
+            tags: ['Android', 'Kotlin', 'Jetpack Compose'],
             repository: 'https://github.com/hmzgtl16/HPoke',
             website: ''
         },
         {
             id: 2,
             title: 'HBookStore',
-            description:
-                'A comprehensive Spring Boot–based RESTful API for managing books, authors, customers, and reviews, featuring secure JWT authentication and a clean, domain-driven architecture.',
+            description: 'Spring Boot REST API for book management with JWT authentication and domain-driven design.',
             image: HBookStore,
-            tags: ['Spring Boot', 'Java', 'REST API', 'JWT', 'DDD', 'PostgreSQL'],
+            tags: ['Spring Boot', 'Java', 'REST API', 'JWT'],
             repository: 'https://github.com/hmzgtl16/HBookStore',
             website: ''
         },
         {
             id: 3,
             title: 'Personal Portfolio',
-            description:
-                'A personal portfolio website designed to showcase my projects, skills, and services, with a clean layout, responsive design, and a focus on clarity and performance.',
+            description: 'Responsive React portfolio showcasing projects and skills with clean, performant design.',
             image: HPortfolio,
             tags: ['React', 'Tailwind CSS', 'Vite'],
             repository: 'https://github.com/hmzgtl16/HamzaPortfolio',
@@ -45,28 +41,25 @@ function Projects() {
         {
             id: 4,
             title: 'HBank-API',
-            description:
-                'A banking RESTful API built with Spring Boot and Kotlin, designed to handle core banking operations with a focus on security, scalability, and clean architecture.',
+            description: 'Kotlin-based banking REST API built with Spring Boot, featuring secure and scalable architecture.',
             image: HBank,
-            tags: ['Spring Boot', 'Kotlin', 'REST API', 'MVC', 'JPA', 'PostgreSQL'],
+            tags: ['Spring Boot', 'Kotlin', 'REST API', 'JPA'],
             repository: 'https://github.com/hmzgtl16/HBank-API',
             website: ''
         },
         {
             id: 5,
             title: 'HNotes',
-            description:
-                'A modular Android application designed for note-taking, built with a focus on clean architecture, scalability, and maintainable code.',
+            description: 'Modular Android note-taking app built with clean architecture and Jetpack Compose.',
             image: HNotes,
-            tags: ['Android', 'Kotlin', 'Jetpack Compose', 'Modular Architecture', 'Notes App'],
+            tags: ['Android', 'Kotlin', 'Jetpack Compose'],
             repository: 'https://github.com/hmzgtl16/HNotes',
             website: ''
         },
         {
             id: 6,
             title: 'White Label Casinos Project',
-            description:
-                'A multi-language website built with Angular and Bootstrap, provide a responsive, user-friendly experience across different locales.',
+            description: 'Multi-language Angular website with responsive Bootstrap design and internationalization support.',
             image: WLCP,
             tags: ['Angular', 'Bootstrap 5', 'i18n', 'Vite'],
             repository: 'https://github.com/hmzgtl16/WhiteLabelCasinosProject',
