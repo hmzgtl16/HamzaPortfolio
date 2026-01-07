@@ -1,6 +1,5 @@
 import LogoLoop from "@/components/sliders/logo-loop/LogoLoop.tsx";
 import {Element} from 'react-scroll';
-import BlurText from "@/components/texts/blur-text/BlurText.tsx";
 
 const techLogos = [
     {
@@ -123,30 +122,22 @@ function About() {
                     <div className="mx-auto px-6 lg:px-8">
                         <div className="mx-auto lg:mx-0">
                             <div className="text-center">
-                                <BlurText
-                                    text='About me'
-                                    delay={100}
-                                    className="text-4xl font-serif font-bold tracking-tight text-pretty sm:text-5xl capitalize"
-                                />
-                                <BlurText
-                                    text='A brief introduction about me and my interest.'
-                                    delay={200}
-                                    className="mt-4 text-2xl font-sans font-medium tracking-wide text-foreground/65"
-                                />
+                                <h2 className="text-4xl font-serif font-bold tracking-tight text-pretty sm:text-5xl capitalize">
+                                    About me
+                                </h2>
+                                <p className="mt-4 text-2xl font-sans font-medium tracking-wide text-foreground/65">
+                                    A brief introduction about me and my interest.
+                                </p>
                             </div>
                         </div>
                         <div className="mx-auto my-6 py-4 sm:my-8 sm:py-8 lg:mx-0">
                             <div className="text-center tracking-wide leading-relaxe mx-auto space-y-8 max-w-4xl">
-                                <BlurText
-                                    text='I’m an Android developer focused on building modern, maintainable mobile applications using Kotlin and Jetpack Compose. I care deeply about clean architecture, scalability, and writing code that remains readable and testable as projects grow.'
-                                    delay={100}
-                                    className="text-xl sm:text-2xl"
-                                />
-                                <BlurText
-                                    text='In addition to Android development, I have experience with backend development using Spring Boot, REST APIs, and PostgreSQL, as well as contributing to frontend development to support well-integrated, end-to-end solutions.'
-                                    delay={100}
-                                    className="text-xl sm:text-2xl"
-                                />
+                                <p className="text-xl sm:text-2xl">
+                                    I’m an Android developer focused on building modern, maintainable mobile applications using Kotlin and Jetpack Compose. I care deeply about clean architecture, scalability, and writing code that remains readable and testable as projects grow.
+                                </p>
+                                <p className="text-xl sm:text-2xl">
+                                    In addition to Android development, I have experience with backend development using Spring Boot, REST APIs, and PostgreSQL, as well as contributing to frontend development to support well-integrated, end-to-end solutions.
+                                </p>
                             </div>
                         </div>
                     </div>
